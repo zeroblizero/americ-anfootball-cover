@@ -1,4 +1,4 @@
-# americ an football cover
+# americ anfootball cover
 
 A fully static, client-side web app that lets you recreate the aesthetic of the **American Football** self-titled album cover. Upload a photo, crop it to a square, drag the "americ an football" text overlay into position, and download the result as a PNG — all in the browser, no server required.
 
