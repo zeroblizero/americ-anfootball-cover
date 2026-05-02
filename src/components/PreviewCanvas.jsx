@@ -51,7 +51,7 @@ function drawText(ctx, pos) {
   ctx.textBaseline = 'top';
 
   // Letter spacing and line height are also scaled relative to font size
-  // Current values work for Noto Sans, but may need adjustments for Imago
+  // Current values work for Lato Sans, but may need adjustments for Imago
   const letterSpacingLarge = fontSizeLarge * 0.16;
   const letterSpacingSmall = fontSizeSmall * 0.31;
   const lineHeight = fontSizeLarge * 0.9;

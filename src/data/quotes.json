@@ -1,54 +1,37 @@
 [
   {
+    "lyric": "Maybe everything is tragic and temporary",
+    "song": "Letters and Packages"
+  },
+  {
+    "lyric": "Those red strings, our insecurities, how everything moves",
+    "song": "The One With the Tambourine"
+  },
+  
+
+
+  {
     "lyric": "So let's just pretend everything and anything between you and me was never meant.",
     "song": "Never Meant"
   },
   {
-    "lyric": "I'm never alone, I'm alone all the time.",
+    "lyric": "Let's just forget everything said and everything we did.",
     "song": "Never Meant"
   },
   {
-    "lyric": "Are we already the people we're going to be?",
-    "song": "The Summer Ends"
-  },
-  {
-    "lyric": "We're all writing letters we'll never send.",
-    "song": "Letters and Packages"
-  },
-  {
-    "lyric": "Do you feel as hollow as I feel?",
-    "song": "The One With the Tambourine"
-  },
-  {
-    "lyric": "I keep asking myself, 'What would you do if you were me?'",
-    "song": "Stay Home"
-  },
-  {
-    "lyric": "How do I stop feeling sorry for myself?",
-    "song": "I've Been So Lost for So Long"
-  },
-  {
-    "lyric": "Somewhere between the time I'm awake and the time I'm asleep.",
-    "song": "But the Regrets Are Killing Me"
-  },
-  {
-    "lyric": "I'll see you when we're both not so emotional.",
-    "song": "I'll See You When We're Both Not So Emotional"
-  },
-  {
-    "lyric": "I know you meant well.",
+    "lyric": "The autumn night when we realized we were falling out of love",
     "song": "Never Meant"
   },
   {
-    "lyric": "Everything means everything, or nothing at all.",
+    "lyric": "Thinking about leaving, how should I say goodbye",
     "song": "The Summer Ends"
   },
   {
-    "lyric": "I swear this will be the last time I'll ever ask myself why.",
-    "song": "I've Been So Lost for So Long"
+    "lyric": "Maybe my intentions are irrelevant",
+    "song": "The Summer Ends"
   },
   {
-    "lyric": "The summer ends and we'd just begun.",
+    "lyric": "I know that this is the last time.",
     "song": "The Summer Ends"
   },
   {
@@ -56,53 +39,107 @@
     "song": "Honestly?"
   },
   {
-    "lyric": "And if you need me, I'll be with you, or not with you, without you.",
+    "lyric": "June seems too late, delayed",
     "song": "For Sure"
   },
   {
-    "lyric": "Let's just forget everything said and everything we did.",
-    "song": "Never Meant"
+    "lyric": "Fools leave too soon",
+    "song": "But the Regrets Are Killing Me"
   },
   {
-    "lyric": "I know that this is the last time.",
-    "song": "The Summer Ends"
+    "lyric": "We're two human beings",
+    "song": "I'll See You When We're Both Not So Emotional"
   },
   {
-    "lyric": "My instincts are the enemy.",
+    "lyric": "I'll see you when we're both not so emotional.",
+    "song": "I'll See You When We're Both Not So Emotional"
+  },
+  {
+    "lyric": "But that's life, it's so social",
+    "song": "Stay Home"
+  },
+  
+
+
+  {
+    "lyric": "Strange how these city streets have changed faces like we did",
+    "song": "Where Are We Now?"
+  },
+  {
+    "lyric": "My Instincts are the enemy.",
     "song": "My Instincts Are the Enemy"
   },
   {
-    "lyric": "I've been so lost for so long, I don't know how to get back again.",
+    "lyric": "Those wounds won't lick themselves",
+    "song": "Home is Where the Haunt Is"
+  },
+  {
+    "lyric": "Animals know not what they do",
+    "song": "Born To Lose"
+  },
+  {
+    "lyric": "I've been so lost for so long.",
     "song": "I've Been So Lost for So Long"
   },
   {
-    "lyric": "Everyone is acting normal, but I don't feel normal at all.",
+    "lyric": "Every street's a dead end, every sign points behind me",
+    "song": "I've Been So Lost for So Long"
+  },
+  {
+    "lyric": "I feel so sick, Doctor, it hurts when I exist",
+    "song": "I've Been So Lost for So Long"
+  },
+  {
+    "lyric": "I know where your mind goes when you're left alone",
+    "song": "Give Me the Gun"
+  },
+  {
+    "lyric": "I've had the longest day, I'm as blue as the sky is gray",
     "song": "I Need a Drink (or Two or Three)"
   },
   {
-    "lyric": "I blame my instincts, they're too late, always second-guessing everything.",
-    "song": "My Instincts Are the Enemy"
+    "lyric": "I can't lie, I kind of like the pain",
+    "song": "Desire Gets in the Way"
   },
   {
-    "lyric": "I keep on dragging this anchor.",
-    "song": "My Instincts Are the Enemy"
+    "lyric": "Everybody knows that the best way to describe the ocean to a blind man is to push him in",
+    "song": "Everyone is Dressed Up"
   },
+  
+
+
   {
-    "lyric": "I hear the high-pitched drone of modern monotony.",
+    "lyric": "What's the allure of inconsequential love?",
     "song": "Silhouettes"
   },
   {
-    "lyric": "Oh, when it's all your fault, but you fault every fault.",
+    "lyric": "The clock on my wall is stuck on yesterday",
     "song": "Every Wave to Ever Rise"
   },
   {
-    "lyric": "You defend your defenses to the death.",
+    "lyric": "Forever has to wait",
     "song": "Every Wave to Ever Rise"
   },
   {
-    "lyric": "I've become uncomfortably numb, so wake me up.",
+    "lyric": "I've become uncomfortably numb.",
     "song": "Uncomfortably Numb"
   },
+  {
+    "lyric": "Sensitivity deprived, I can't feel a thing inside",
+    "song": "Uncomfortably Numb"
+  },
+  {
+    "lyric": "My head is an unmade bed",
+    "song": "Mine to Miss"
+  },
+  {
+    "lyric": "I miss you like a past life",
+    "song": "Mine to Miss"
+  },
+
+
+
+
   {
     "lyric": "I made my bed and I lied in it.",
     "song": "Man Overboard"
@@ -120,11 +157,47 @@
     "song": "Man Overboard"
   },
   {
+    "lyric": "I honestly never planned on getting old.",
+    "song": "No Feeling"
+  },
+  {
+    "lyric": "Don't ask why the devil hides in the details.",
+    "song": "Blood On My Blood"
+  },
+  {
+    "lyric": "Please don't love me or the faces I keep veiled",
+    "song": "Blood On My Blood"
+  },
+  {
+    "lyric": "I'm scared, and I don’t want to grow up.",
+    "song": "Bad Moons"
+  },
+  {
     "lyric": "I lost my mind in the dark.",
     "song": "Bad Moons"
   },
   {
     "lyric": "I told all my lies in the dark.",
     "song": "Bad Moons"
+  },
+  {
+    "lyric": "I hid my shame in the dark.",
+    "song": "Bad Moons"
+  },
+  {
+    "lyric": "Sedatives and therapists, there must be a better way to settle this",
+    "song": "Patron Saint of Pale"
+  },
+  {
+    "lyric": "I wanna believe you more than I want to leave you",
+    "song": "Desdemona"
+  },
+  {
+    "lyric": "If we're all born the same Why am I so ashamed?",
+    "song": "No Soul to Save"
+  },
+  {
+    "lyric": "I wasn't made to live on a stage",
+    "song": "No Soul to Save"
   }
 ]
