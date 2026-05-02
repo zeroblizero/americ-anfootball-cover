@@ -48,7 +48,7 @@ export default function App() {
     return (
       <div className="app">
         <header className="app-header">
-          <h1 className="app-title">americ an football cover</h1>
+          <h1 className="app-title">americ anfootball cover generator</h1>
         </header>
         <main className="app-main">
           <p className="step-hint">Drag the text to reposition it, then download.</p>
@@ -73,7 +73,7 @@ export default function App() {
     return (
       <div className="app">
         <header className="app-header">
-          <h1 className="app-title">americ an football cover</h1>
+          <h1 className="app-title">americ anfootball cover generator</h1>
         </header>
         <main className="app-main">
           <p className="step-hint">Position your photo in the square, then crop.</p>
@@ -96,7 +96,7 @@ export default function App() {
     <div className="app">
       <header className="app-header">
         <QuoteBanner />
-        <h1 className="app-title">americ an football cover</h1>
+        <h1 className="app-title">americ anfootball cover generator </h1>
       </header>
       <main className="app-main">
         <label

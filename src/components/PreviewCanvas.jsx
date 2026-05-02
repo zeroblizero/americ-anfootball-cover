@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState, useCallback, forwardRef } from 'react';
 
 const CANVAS_SIZE = 600;
-const DEFAULT_TEXT_X_RATIO = 0.07;
-const DEFAULT_TEXT_Y_RATIO = 0.82;
+const DEFAULT_TEXT_X_RATIO = 0.484;
+const DEFAULT_TEXT_Y_RATIO = 0.245;
 
 function getDefaultPos() {
   return { x: CANVAS_SIZE * DEFAULT_TEXT_X_RATIO, y: CANVAS_SIZE * DEFAULT_TEXT_Y_RATIO };
@@ -35,29 +35,55 @@ async function getCroppedImage(imageSrc, croppedAreaPixels) {
 }
 
 function drawText(ctx, pos) {
-  const fontSize = Math.round(CANVAS_SIZE * 0.1);
-  // TODO: replace 'Lato' with Imago Regular once licensed — update --font-overlay in index.css
+  // Font sizes and spacing are relative to canvas size for better scaling results
+  const fontSizeLarge = Math.round(CANVAS_SIZE * 0.14);
+  const fontSizeSmall  = Math.round(CANVAS_SIZE * 0.045);
+
+  // Get font family from CSS variable 
   const fontFamily = getComputedStyle(document.documentElement)
     .getPropertyValue('--font-overlay')
     .trim() || "'Lato', sans-serif";
-
+  
+  // White fill with some opacity to ensure text is visible on various backgrounds
   ctx.save();
   ctx.fillStyle = 'rgba(255, 255, 255, 0.92)';
-  ctx.font = `300 ${fontSize}px ${fontFamily}`;
   ctx.textBaseline = 'top';
 
-  // Wide letter-spacing: manually space each character
-  const letterSpacing = fontSize * 0.18;
-  const lines = ['americ an', 'football'];
-  const lineHeight = fontSize * 1.25;
+  // Letter spacing and line height are also scaled relative to font size
+  const letterSpacingLarge = fontSizeLarge * 0.17;
+  const letterSpacingSmall = fontSizeSmall * 0.24;
+  const lineHeight = fontSizeLarge * 0.876;
 
-  lines.forEach((line, i) => {
-    let x = pos.x;
-    const y = pos.y + i * lineHeight;
-    for (const char of line) {
-      ctx.fillText(char, x, y);
-      x += ctx.measureText(char).width + letterSpacing;
+  // Define text lines
+  const lines = [
+    { text: 'americ',      fontSize: fontSizeLarge, spacing: letterSpacingLarge },
+    { text: 'anfootball',  fontSize: fontSizeSmall,  spacing: letterSpacingSmall },
+  ];
+
+  // Measure total width of each line to center them relative to each other
+  function measureLine({ text, fontSize, spacing }) {
+    ctx.font = `300 ${fontSize}px ${fontFamily}`;
+    let width = 0;
+    for (const char of text) {
+      width += ctx.measureText(char).width + spacing;
     }
+    return width - spacing; // no trailing spacing
+  }
+
+  const widths = lines.map(measureLine);
+  const maxWidth = Math.max(...widths);
+
+  const indents = [0, 60];
+
+  let y = pos.y;
+  lines.forEach((line, i) => {
+    ctx.font = `300 ${line.fontSize}px ${fontFamily}`;
+    let x = pos.x + indents[i];
+    for (const char of line.text) {
+      ctx.fillText(char, x, y);
+      x += ctx.measureText(char).width + line.spacing;
+    }
+    y += i === 0 ? lineHeight : 0;
   });
 
   ctx.restore();
