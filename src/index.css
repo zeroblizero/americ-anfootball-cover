@@ -7,6 +7,9 @@
        3. Update --font-overlay to 'Imago', sans-serif
   */
   --font-overlay: 'Lato', sans-serif;
+  --page-bg-image: url('./assets/img/lp1.jpg');
+  --page-bg-opacity: 0.14;
+  --page-vignette-opacity: 0.9;
 
   /* @font-face {
     font-family: 'Imago';
@@ -30,10 +33,53 @@ body {
   font-family: var(--font-overlay);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  
 }
 
 #root {
+  position: relative;
+  isolation: isolate;
   min-height: 100svh;
   display: flex;
   flex-direction: column;
+}
+
+#root::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: var(--page-bg-image);
+  background-position: right center;
+  background-repeat: no-repeat;
+  background-size: cover;  
+  opacity: var(--page-bg-opacity);
+  pointer-events: none;
+  z-index: 0;
+}
+
+#root::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(
+      120% 120% at 50% 50%,
+      rgba(0, 0, 0, 0) 55%,
+      rgba(0, 0, 0, 0.58) 100%
+    ),
+    linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.34),
+      rgba(0, 0, 0, 0.08) 35%,
+      rgba(0, 0, 0, 0.08) 65%,
+      rgba(0, 0, 0, 0.34)
+    );
+  opacity: var(--page-vignette-opacity);
+  pointer-events: none;
+  z-index: 0;
+}
+
+#root > * {
+  position: relative;
+  z-index: 1;
 }

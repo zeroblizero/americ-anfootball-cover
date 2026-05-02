@@ -13,6 +13,7 @@ export default function CropView({ imageSrc, onCropComplete }) {
           crop={crop}
           zoom={zoom}
           aspect={1}
+          objectFit='cover'
           onCropChange={setCrop}
           onZoomChange={setZoom}
           onCropComplete={onCropComplete}

@@ -48,6 +48,9 @@
 }
 
 .footer-icon svg {
+  width: 18px;
+  height: 18px;
+  fill: dimgray;
   transition: fill 0.2s;
 }
 
@@ -146,7 +149,7 @@
   max-width: 480px;
   overflow: hidden;
   border-radius: 4px;
-  background: #000;
+  background: transparent;
 }
 
 .crop-hint {
