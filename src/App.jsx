@@ -42,8 +42,17 @@ export default function App() {
     setCroppedAreaPixels(null);
     setIsCropped(false);
   }
+
+  // Header declaration
+  const appHeader = (
+    <header className="app-header">
+      <QuoteBanner />
+      <h1 className="app-title">americ anfootball cover generator</h1>
+    </header>
+  );
+
   // Footer declaration
-  const footer = (
+  const appFooter = (
     <footer className="app-footer">
       <span>made with love by zeroblizero</span>
       <a href="https://github.com/zeroblizero/americ-anfootball-cover" className="footer-icon" aria-label="GitHub">
@@ -63,9 +72,7 @@ export default function App() {
   if (isCropped) {
     return (
       <div className="app">
-        <header className="app-header">
-          <h1 className="app-title">americ anfootball cover generator</h1>
-        </header>
+        {appHeader}
         <main className="app-main">
           <p className="step-hint">Drag the text to reposition it, then download.</p>
           <PreviewCanvas
@@ -80,7 +87,7 @@ export default function App() {
             <DownloadButton canvasRef={canvasRef} />
           </div>
         </main>
-        {footer}
+        {appFooter}
       </div>
     );
   }
@@ -89,9 +96,7 @@ export default function App() {
   if (imageSrc) {
     return (
       <div className="app">
-        <header className="app-header">
-          <h1 className="app-title">americ anfootball cover generator</h1>
-        </header>
+        {appHeader}
         <main className="app-main">
           <p className="step-hint">Position your photo in the square, then crop.</p>
           <CropView imageSrc={imageSrc} onCropComplete={handleCropComplete} />
@@ -104,7 +109,7 @@ export default function App() {
             </button>
           </div>
         </main>
-        {footer}
+        {appFooter}
       </div>
     );
   }
@@ -112,10 +117,7 @@ export default function App() {
   // ── Step 1: upload zone ──────────────────────────────────────────────────────
   return (
     <div className="app">
-      <header className="app-header">
-        <QuoteBanner />
-        <h1 className="app-title">americ anfootball cover generator </h1>
-      </header>
+      {appHeader}
       <main className="app-main">
         <label
           className={`upload-zone${isDragOver ? ' drag-over' : ''}`}
@@ -134,7 +136,7 @@ export default function App() {
           <span className="upload-sublabel">Any image — it will be cropped to a square</span>
         </label>
       </main>
-      {footer}
+      {appFooter}
     </div>
   );
 }

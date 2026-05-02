@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState, useCallback, forwardRef } from 'react';
 
 const CANVAS_SIZE = 600;
-const DEFAULT_TEXT_X_RATIO = 0.484;
-const DEFAULT_TEXT_Y_RATIO = 0.245;
+const DEFAULT_TEXT_X_RATIO = 0.548; // Default X position 
+const DEFAULT_TEXT_Y_RATIO = 0.280; // Default Y position
 
 function getDefaultPos() {
   return { x: CANVAS_SIZE * DEFAULT_TEXT_X_RATIO, y: CANVAS_SIZE * DEFAULT_TEXT_Y_RATIO };
@@ -35,34 +35,37 @@ async function getCroppedImage(imageSrc, croppedAreaPixels) {
 }
 
 function drawText(ctx, pos) {
-  // Font sizes and spacing are relative to canvas size for better scaling results
-  const fontSizeLarge = Math.round(CANVAS_SIZE * 0.14);
-  const fontSizeSmall  = Math.round(CANVAS_SIZE * 0.045);
 
   // Get font family from CSS variable 
   const fontFamily = getComputedStyle(document.documentElement)
-    .getPropertyValue('--font-overlay')
-    .trim() || "'Lato', sans-serif";
+  .getPropertyValue('--font-overlay')
+  .trim() || "'Lato', sans-serif";
   
+  // Font sizes and spacing are relative to canvas size for better scaling results
+  const fontSizeLarge = Math.round(CANVAS_SIZE * 0.124);
+  const fontSizeSmall  = Math.round(CANVAS_SIZE * 0.035);
+
   // White fill with some opacity to ensure text is visible on various backgrounds
   ctx.save();
   ctx.fillStyle = 'rgba(255, 255, 255, 0.92)';
   ctx.textBaseline = 'top';
 
   // Letter spacing and line height are also scaled relative to font size
-  const letterSpacingLarge = fontSizeLarge * 0.17;
-  const letterSpacingSmall = fontSizeSmall * 0.24;
-  const lineHeight = fontSizeLarge * 0.876;
+  // Current values work for Noto Sans, but may need adjustments for Imago
+  const letterSpacingLarge = fontSizeLarge * 0.16;
+  const letterSpacingSmall = fontSizeSmall * 0.31;
+  const lineHeight = fontSizeLarge * 0.9;
+  const indents = [0, 56];
 
   // Define text lines
   const lines = [
-    { text: 'americ',      fontSize: fontSizeLarge, spacing: letterSpacingLarge },
-    { text: 'anfootball',  fontSize: fontSizeSmall,  spacing: letterSpacingSmall },
+    { text: 'americ',      fontSize: fontSizeLarge, spacing: letterSpacingLarge, weight: 700 },
+    { text: 'anfootball',  fontSize: fontSizeSmall,  spacing: letterSpacingSmall, weight: 400 },
   ];
 
   // Measure total width of each line to center them relative to each other
-  function measureLine({ text, fontSize, spacing }) {
-    ctx.font = `300 ${fontSize}px ${fontFamily}`;
+  function measureLine({ text, fontSize, spacing, weight }) {
+    ctx.font = `${weight} ${fontSize}px ${fontFamily}`;
     let width = 0;
     for (const char of text) {
       width += ctx.measureText(char).width + spacing;
@@ -73,11 +76,9 @@ function drawText(ctx, pos) {
   const widths = lines.map(measureLine);
   const maxWidth = Math.max(...widths);
 
-  const indents = [0, 60];
-
   let y = pos.y;
   lines.forEach((line, i) => {
-    ctx.font = `300 ${line.fontSize}px ${fontFamily}`;
+    ctx.font = `${line.weight} ${line.fontSize}px ${fontFamily}`;
     let x = pos.x + indents[i];
     for (const char of line.text) {
       ctx.fillText(char, x, y);

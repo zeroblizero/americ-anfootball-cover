@@ -12,6 +12,9 @@ dist
 dist-ssr
 *.local
 
+src/assets/img/lp1.jpg.original
+src/assets/img/lp2.jpg.original
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

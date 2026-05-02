@@ -27,6 +27,7 @@
 .app-main {
   width: 100%;
   max-width: 640px;
+  margin-bottom: 24px;
   display: flex;
   flex-direction: column;
   align-items: center;
