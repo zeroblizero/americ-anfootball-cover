@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState, useCallback, forwardRef } from 'react';
+import { Knob } from 'primereact/knob';
 
 const CANVAS_SIZE = 600;
 const DEFAULT_TEXT_X_RATIO = 0.548; // Default X position 
@@ -92,35 +93,44 @@ function drawText(ctx, pos) {
 
 const PreviewCanvas = forwardRef(function PreviewCanvas({ imageSrc, croppedAreaPixels }, canvasRef) {
   const [textPos, setTextPos] = useState(getDefaultPos);
+  const [imageOpacity, setImageOpacity] = useState(100);
   const [dragging, setDragging] = useState(false);
   const dragOffset = useRef({ x: 0, y: 0 });
   const baseImageRef = useRef(null);
+
+  const handleOpacityChange = useCallback((value) => {
+    setImageOpacity(value);
+  }, []);
+
+  const render = useCallback((pos, opacity) => {
+    const canvas = canvasRef.current;
+    if (!canvas || !baseImageRef.current) return;
+    const ctx = canvas.getContext('2d');
+    //ctx.clearRect(0, 0, CANVAS_SIZE, CANVAS_SIZE);
+    ctx.fillStyle = '#000';
+    ctx.fillRect(0, 0, CANVAS_SIZE, CANVAS_SIZE);
+    ctx.save();
+    ctx.globalAlpha = opacity / 100;
+    ctx.drawImage(baseImageRef.current, 0, 0);
+    ctx.restore();
+    drawText(ctx, pos);
+  // canvasRef is a stable forwarded ref object — safe to omit from deps
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   // Build the base (cropped) image once
   useEffect(() => {
     if (!imageSrc || !croppedAreaPixels) return;
     getCroppedImage(imageSrc, croppedAreaPixels).then((canvas) => {
       baseImageRef.current = canvas;
-      render(textPos);
+      render(textPos, imageOpacity);
     });
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [imageSrc, croppedAreaPixels]);
-
-  const render = useCallback((pos) => {
-    const canvas = canvasRef.current;
-    if (!canvas || !baseImageRef.current) return;
-    const ctx = canvas.getContext('2d');
-    ctx.clearRect(0, 0, CANVAS_SIZE, CANVAS_SIZE);
-    ctx.drawImage(baseImageRef.current, 0, 0);
-    drawText(ctx, pos);
-  // canvasRef is a stable forwarded ref object — safe to omit from deps
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [imageSrc, croppedAreaPixels, render, textPos, imageOpacity]);
 
   // Re-render whenever textPos changes
   useEffect(() => {
-    render(textPos);
-  }, [textPos, render]);
+    render(textPos, imageOpacity);
+  }, [textPos, imageOpacity, render]);
 
   // ── Pointer helpers ──────────────────────────────────────────────────────────
 
@@ -176,6 +186,22 @@ const PreviewCanvas = forwardRef(function PreviewCanvas({ imageSrc, croppedAreaP
       <button className="btn btn-secondary" onClick={resetPosition}>
         Reset text position
       </button>
+
+      <div className="knob-opacity-wrapper">
+        <span className="knob-opacity-label">Image opacity</span>
+        <Knob
+          className="knob-opacity"
+          value={imageOpacity}
+          min={0}
+          max={100}
+          size={40}
+          valueColor='#fff'
+          rangeColor='#888'
+          strokeWidth={20}
+          onChange={(e) => handleOpacityChange(e.value)}
+          valueTemplate="{value}%"
+        />
+      </div>
     </div>
   );
 });
