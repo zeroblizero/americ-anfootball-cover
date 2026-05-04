@@ -106,7 +106,7 @@ const PreviewCanvas = forwardRef(function PreviewCanvas({ imageSrc, croppedAreaP
     const canvas = canvasRef.current;
     if (!canvas || !baseImageRef.current) return;
     const ctx = canvas.getContext('2d');
-    //ctx.clearRect(0, 0, CANVAS_SIZE, CANVAS_SIZE);
+    ctx.clearRect(0, 0, CANVAS_SIZE, CANVAS_SIZE);
     ctx.fillStyle = '#000';
     ctx.fillRect(0, 0, CANVAS_SIZE, CANVAS_SIZE);
     ctx.save();
