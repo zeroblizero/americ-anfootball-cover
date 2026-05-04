@@ -1,25 +1,19 @@
+@font-face {
+  font-family: 'Imago';
+  src: url('/public/fonts/Imago-Pro-Book.woff2') format('woff2'),
+    url('/public/fonts/Imago-Pro-Book.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
-  /* Font used for the text overlay on the album cover.
-     Currently Lato Light (Google Fonts) — a humanist sans-serif.
-     TODO: replace with Imago Regular once licensed:
-       1. Add the .woff2 file to public/fonts/
-       2. Uncomment the @font-face block below
-       3. Update --font-overlay to 'Imago', sans-serif
-  */
-  
-  /* @font-face {
-    font-family: 'Imago';
-    src: url('/fonts/Imago-Regular.woff2') format('woff2');
-    font-weight: 400;
-    font-style: normal;
-    font-display: swap;
-    } */
-    
-    --font-overlay: 'Lato', sans-serif;
-    
-    --page-bg-image: url('./assets/img/lp1.jpg');
-    --page-bg-opacity: 0.14;
-    --page-vignette-opacity: 0.9;
+/*  --font-overlay: 'Lato', sans-serif; */
+--font-overlay: 'Imago', sans-serif;
+
+--page-bg-image: url('./assets/img/lp1.jpg');
+--page-bg-opacity: 0.14;
+--page-vignette-opacity: 0.9;
 }
 
 *,
