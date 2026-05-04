@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState, useCallback, forwardRef } from 'react';
 
 const CANVAS_SIZE = 600;
-const DEFAULT_TEXT_X_RATIO = 0.548; // Default X position 
-const DEFAULT_TEXT_Y_RATIO = 0.280; // Default Y position
+const DEFAULT_TEXT_X_RATIO = 0.55; // Default X position 
+const DEFAULT_TEXT_Y_RATIO = 0.288; // Default Y position
 
 function getDefaultPos() {
   return { x: CANVAS_SIZE * DEFAULT_TEXT_X_RATIO, y: CANVAS_SIZE * DEFAULT_TEXT_Y_RATIO };
@@ -43,24 +43,26 @@ function drawText(ctx, pos) {
   
   // Font sizes and spacing are relative to canvas size for better scaling results
   const fontSizeLarge = Math.round(CANVAS_SIZE * 0.124);
-  const fontSizeSmall  = Math.round(CANVAS_SIZE * 0.035);
+  const fontSizeSmall  = Math.round(CANVAS_SIZE * 0.038);
 
   // White fill with some opacity to ensure text is visible on various backgrounds
   ctx.save();
   ctx.fillStyle = 'rgba(255, 255, 255, 0.92)';
   ctx.textBaseline = 'top';
 
+  // Font properties
   // Letter spacing and line height are also scaled relative to font size
-  // Current values work for Lato Sans, but may need adjustments for Imago
-  const letterSpacingLarge = fontSizeLarge * 0.16;
-  const letterSpacingSmall = fontSizeSmall * 0.31;
-  const lineHeight = fontSizeLarge * 0.9;
-  const indents = [0, 56];
+  const letterSpacingLarge = fontSizeLarge * 0.175;
+  const letterSpacingSmall = fontSizeSmall * 0.268;
+  const weightLarge = 500;
+  const weightSmall = 300;
+  const lineHeight = fontSizeLarge * 0.846;
+  const indents = [0, 53];
 
   // Define text lines
   const lines = [
-    { text: 'americ',      fontSize: fontSizeLarge, spacing: letterSpacingLarge, weight: 700 },
-    { text: 'anfootball',  fontSize: fontSizeSmall,  spacing: letterSpacingSmall, weight: 400 },
+    { text: 'americ',      fontSize: fontSizeLarge, spacing: letterSpacingLarge, weight: weightLarge },
+    { text: 'anfootball',  fontSize: fontSizeSmall,  spacing: letterSpacingSmall, weight: weightSmall },
   ];
 
   // Measure total width of each line to center them relative to each other

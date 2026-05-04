@@ -18,7 +18,7 @@
   font-family: var(--font-overlay);
   font-weight: 300;
   font-size: clamp(1.4rem, 5vw, 2.4rem);
-  letter-spacing: 0.3em;
+  letter-spacing: 0.2em;
   text-transform: lowercase;
   color: #fff;
   margin: 0 0 24px;

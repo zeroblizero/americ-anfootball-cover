@@ -47,7 +47,7 @@ export default function App() {
   const appHeader = (
     <header className="app-header">
       <QuoteBanner />
-      <h1 className="app-title">americ anfootball cover generator</h1>
+      <h1 className="app-title">americ anfootball<br />cover generator</h1>
     </header>
   );
 
