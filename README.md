@@ -40,20 +40,6 @@ npm run build
 
 ---
 
-## Font
-
-The overlay text currently uses **Lato Light** loaded from Google Fonts — a free placeholder that approximates the album cover aesthetic.
-
-The original album uses **Imago Regular** by URW Type Foundry, a commercial font. If you purchase a webfont license:
-
-1. Place the `.woff2` file in `public/fonts/`
-2. Uncomment the `@font-face` block in `src/index.css`
-3. Change `--font-overlay` to `'Imago', sans-serif` in `src/index.css`
-
-> **Licensing note:** Imago Regular is not bundled in this repository. `public/fonts/` is an empty placeholder directory. Do not add a font file without a valid webfont license from the foundry.
-
----
-
 ## Tech stack
 
 | Tool | Purpose |
